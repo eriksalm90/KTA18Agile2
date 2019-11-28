@@ -16,10 +16,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resources(['posts => PostController']);
+//Route::resources(['posts => PostController']);
 
-//Route::get('/posts', 'PostController@index');
-//Route::get('/posts/{post}', 'PostController@show');
-//Route::post('/posts', 'PostController@store');
-//Route::patch('/posts/{post}', 'PostController@update');
-//Route::delete('/posts/{post}', 'PostController@destroy');
+Route::get('/posts', 'PostController@index');
+Route::get('/posts/{post}', 'PostController@show');
+Route::post('/posts', 'PostController@store');
+Route::patch('/posts/{post}', 'PostController@update');
+Route::delete('/posts/{post}', 'PostController@destroy');
+
+Route::get('/comments', 'CommentController@index');
+Route::get('/comments/{comment}', 'CommentController@show');
+Route::post('/comments', 'CommentController@store');
+Route::patch('/comments/{comment}', 'CommentController@update');
+Route::delete('/comments/{comment}', 'CommentController@destroy');
